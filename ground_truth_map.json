@@ -1,0 +1,602 @@
+{
+  "raw_image_001.jpg": {
+    "true_category": "other",
+    "original_file": "image_010.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_002.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_005.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_003.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_016.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_004.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_015.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_005.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_013.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_006.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_011.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_007.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_014.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_008.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_008.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_009.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_017.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_010.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_010.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_011.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_008.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_012.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_020.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_013.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_009.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_014.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_013.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_015.jpg": {
+    "true_category": "other",
+    "original_file": "image_017.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_016.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_003.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_017.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_003.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_018.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_018.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_019.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_012.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_020.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_009.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_021.jpg": {
+    "true_category": "other",
+    "original_file": "image_009.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_022.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_002.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_023.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_019.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_024.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_009.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_025.jpg": {
+    "true_category": "other",
+    "original_file": "image_008.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_026.jpg": {
+    "true_category": "other",
+    "original_file": "image_002.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_027.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_019.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_028.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_011.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_029.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_007.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_030.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_001.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_031.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_002.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_032.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_013.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_033.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_002.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_034.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_011.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_035.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_007.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_036.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_020.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_037.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_008.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_038.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_015.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_039.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_001.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_040.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_019.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_041.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_020.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_042.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_016.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_043.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_017.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_044.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_003.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_045.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_004.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_046.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_006.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_047.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_004.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_048.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_001.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_049.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_020.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_050.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_013.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_051.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_005.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_052.jpg": {
+    "true_category": "other",
+    "original_file": "image_007.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_053.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_017.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_054.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_011.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_055.jpg": {
+    "true_category": "other",
+    "original_file": "image_019.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_056.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_010.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_057.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_019.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_058.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_003.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_059.jpg": {
+    "true_category": "other",
+    "original_file": "image_003.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_060.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_004.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_061.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_013.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_062.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_014.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_063.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_017.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_064.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_007.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_065.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_018.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_066.jpg": {
+    "true_category": "other",
+    "original_file": "image_011.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_067.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_015.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_068.jpg": {
+    "true_category": "other",
+    "original_file": "image_016.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_069.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_019.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_070.jpg": {
+    "true_category": "other",
+    "original_file": "image_006.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_071.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_014.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_072.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_005.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_073.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_006.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_074.jpg": {
+    "true_category": "other",
+    "original_file": "image_013.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_075.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_009.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_076.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_002.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_077.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_011.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_078.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_020.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_079.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_001.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_080.jpg": {
+    "true_category": "other",
+    "original_file": "image_020.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_081.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_006.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_082.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_004.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_083.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_005.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_084.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_001.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_085.jpg": {
+    "true_category": "other",
+    "original_file": "image_001.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_086.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_016.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_087.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_006.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_088.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_018.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_089.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_014.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_090.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_014.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_091.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_008.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_092.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_010.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_093.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_004.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_094.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_012.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_095.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_006.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_096.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_012.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_097.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_003.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_098.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_018.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_099.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_005.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_100.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_010.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_101.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_008.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_102.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_007.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_103.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_018.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_104.jpg": {
+    "true_category": "other",
+    "original_file": "image_005.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_105.jpg": {
+    "true_category": "pressure_vessel_heavy_equipment",
+    "original_file": "image_015.jpg",
+    "source_subfolder": "pressure_vessel_heavy_equipment"
+  },
+  "raw_image_106.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_016.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_107.jpg": {
+    "true_category": "other",
+    "original_file": "image_012.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_108.jpg": {
+    "true_category": "quality_ndt_weld_defects",
+    "original_file": "image_010.jpg",
+    "source_subfolder": "quality_ndt_weld_defects"
+  },
+  "raw_image_109.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_012.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_110.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_007.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_111.jpg": {
+    "true_category": "other",
+    "original_file": "image_014.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_112.jpg": {
+    "true_category": "technical_engineering_drawings",
+    "original_file": "image_017.jpg",
+    "source_subfolder": "technical_engineering_drawings"
+  },
+  "raw_image_113.jpg": {
+    "true_category": "other",
+    "original_file": "image_018.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_114.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_009.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_115.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_012.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_116.jpg": {
+    "true_category": "piping_valves_manifolds",
+    "original_file": "image_016.jpg",
+    "source_subfolder": "piping_valves_manifolds"
+  },
+  "raw_image_117.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_015.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  },
+  "raw_image_118.jpg": {
+    "true_category": "other",
+    "original_file": "image_004.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_119.jpg": {
+    "true_category": "other",
+    "original_file": "image_015.jpg",
+    "source_subfolder": "other"
+  },
+  "raw_image_120.jpg": {
+    "true_category": "safety_ppe_hazards",
+    "original_file": "image_002.jpg",
+    "source_subfolder": "safety_ppe_hazards"
+  }
+}

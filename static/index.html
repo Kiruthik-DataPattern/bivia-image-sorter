@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System One — AI Image Sorter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0b0f17;
+      --bg-surface: #121824;
+      --bg-surface-elevated: #1a2332;
+      --bg-card: #162030;
+      --border-subtle: #223046;
+      --border-accent: #2e4362;
+      
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 20px;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+    }
+
+    .brand-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      color: #34d399;
+    }
+
+    .status-pill.offline {
+      background: rgba(244, 63, 94, 0.1);
+      border-color: rgba(244, 63, 94, 0.25);
+      color: #fb7185;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 8px currentColor;
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-accent);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #25334a;
+      border-color: #3d5578;
+    }
+
+    /* Grid Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 24px;
+    }
+
+    /* Sidebar / Configuration */
+    .config-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: fit-content;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* Preset selector tabs */
+    .preset-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .preset-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .preset-btn:hover {
+      border-color: var(--border-accent);
+      background: #1f2b3e;
+    }
+
+    .preset-btn.active {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: var(--primary);
+      color: #93c5fd;
+    }
+
+    .preset-btn .count {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
+    }
+
+    /* Category list */
+    .category-box {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      max-height: 220px;
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .cat-badge {
+      background: #1f2d42;
+      border: 1px solid #2e4362;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: #cbd5e1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cat-badge .remove-btn {
+      color: var(--text-dim);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .cat-badge .remove-btn:hover {
+      color: var(--accent-rose);
+    }
+
+    /* Inputs */
+    .input-field {
+      width: 100%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-field:focus {
+      border-color: var(--primary);
+    }
+
+    /* Options */
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .switch-wrap {
+      display: inline-flex;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-full);
+      padding: 3px;
+    }
+
+    .switch-opt {
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .switch-opt.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Main Area */
+    .main-workspace {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Drag & Drop Upload Zone */
+    .dropzone {
+      background: var(--bg-surface);
+      border: 2px dashed var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dropzone:hover, .dropzone.dragover {
+      border-color: var(--primary);
+      background: rgba(59, 130, 246, 0.04);
+    }
+
+    .dropzone-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .dropzone-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .dropzone-sub {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* Action Bar */
+    .action-bar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .staged-count {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px var(--primary-glow);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* Staged Grid */
+    .staged-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .image-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .image-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .img-preview {
+      width: 100%;
+      height: 140px;
+      background: #0f141d;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-meta {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-filename {
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-main);
+    }
+
+    .card-size {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Results View */
+    .results-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .result-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+
+    .result-card .img-preview {
+      height: 160px;
+    }
+
+    .result-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cat-pill {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+    }
+
+    .confidence-bar-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .conf-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    .conf-track {
+      width: 100%;
+      height: 6px;
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .conf-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      border-radius: var(--radius-full);
+      transition: width 0.6s ease;
+    }
+
+    .result-dest {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+      word-break: break-all;
+      background: rgba(0,0,0,0.2);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Progress bar */
+    .progress-bar-container {
+      width: 100%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      height: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Modal / Alert */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Header -->
+    <header>
+      <div class="brand-wrap">
+        <div class="brand-icon">A8</div>
+        <div>
+          <div class="brand-title">
+            Articul8 Bivia Image Sorter
+            <span class="badge-tag" id="modelTag">dec-1</span>
+          </div>
+          <div class="brand-desc">Enterprise multimodal decision model for automated contextual image categorization</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="status-pill" id="statusPill">
+          <span class="dot"></span>
+          <span id="statusText">Checking API...</span>
+        </div>
+        <button class="btn-secondary" id="openInputBtn" title="Open input folder in Explorer">
+          📂 Input Folder
+        </button>
+        <button class="btn-secondary" id="openOutputBtn" title="Open sorted output folder in Explorer">
+          📁 Output Folder
+        </button>
+        <button class="btn-secondary" id="refreshBtn" title="Rescan folders">
+          🔄 Refresh
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+
+      <!-- Left Configuration Panel -->
+      <aside class="config-card">
+        <div>
+          <span class="section-label">1. Context Preset</span>
+          <div class="preset-group" id="presetGroup">
+            <!-- Dynamic Presets -->
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label">2. Target Categories</span>
+          <div class="category-box" id="categoryBox">
+            <!-- Dynamic Category Badges -->
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label">Add Custom Category</span>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="newCatInput" class="input-field" placeholder="e.g. weld_inspection">
+            <button class="btn-secondary" id="addCatBtn" style="white-space: nowrap;">+ Add</button>
+          </div>
+        </div>
+
+        <div>
+          <span class="section-label">3. Contextual Guidance (Optional)</span>
+          <input type="text" id="contextGuidance" class="input-field" placeholder="e.g. Focus on factory floor hazards or document types">
+        </div>
+
+        <div>
+          <span class="section-label">4. Execution Mode</span>
+          <div class="toggle-row">
+            <span>File Operation:</span>
+            <div class="switch-wrap">
+              <span class="switch-opt active" id="modeCopy" onclick="setMode('copy')">Copy</span>
+              <span class="switch-opt" id="modeMove" onclick="setMode('move')">Move</span>
+            </div>
+          </div>
+          <div style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+            <input type="checkbox" id="dryRunCheck" style="accent-color: var(--primary);">
+            <label for="dryRunCheck" style="font-size: 13px; color: var(--text-muted); cursor: pointer;">Dry-run (preview without filing)</label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Workspace -->
+      <main class="main-workspace">
+
+        <!-- Drag & Drop Zone -->
+        <div class="dropzone" id="dropzone">
+          <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+          <div class="dropzone-icon">⬆</div>
+          <div class="dropzone-title">Drop images here to add to sorting queue</div>
+          <div class="dropzone-sub">Supports PNG, JPG, JPEG, WEBP, BMP — or click to browse files</div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="action-bar">
+          <div class="staged-count" id="stagedCount">0 images in queue</div>
+          <button class="btn-primary" id="sortBtn" disabled>
+            <span>⚡ Classify & Sort with Articul8 Bivia</span>
+          </button>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div id="progressSection" class="hidden" style="background: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600;">
+            <span id="progressStatus">Analyzing image 1 of 5...</span>
+            <span id="progressPercent">20%</span>
+          </div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+          </div>
+        </div>
+
+        <!-- Staged Queue Grid -->
+        <div>
+          <span class="section-label" style="margin-bottom: 12px;">Staged Input Images</span>
+          <div class="staged-grid" id="stagedGrid">
+            <!-- Dynamic Image Cards -->
+          </div>
+        </div>
+
+        <!-- Results Section (Visible after sort) -->
+        <div class="results-section hidden" id="resultsSection">
+          <div class="results-header">
+            <div>
+              <h3 style="font-size: 16px; font-weight: 700;">Sorting Results</h3>
+              <p style="font-size: 12px; color: var(--text-muted);" id="resultsSub">Categorized by System One decision probabilities</p>
+            </div>
+            <div class="filter-tabs" id="filterTabs">
+              <span class="filter-tab active" data-filter="all">All (<span id="countAll">0</span>)</span>
+            </div>
+          </div>
+
+          <div class="results-grid" id="resultsGrid">
+            <!-- Dynamic Result Cards -->
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script>
+    let appConfig = null;
+    let stagedImages = [];
+    let activePreset = 'general';
+    let currentCategories = {};
+    let currentMode = 'copy';
+    let sortingResults = [];
+
+    // Elements
+    const statusPill = document.getElementById('statusPill');
+    const statusText = document.getElementById('statusText');
+    const modelTag = document.getElementById('modelTag');
+    const presetGroup = document.getElementById('presetGroup');
+    const categoryBox = document.getElementById('categoryBox');
+    const stagedCount = document.getElementById('stagedCount');
+    const stagedGrid = document.getElementById('stagedGrid');
+    const sortBtn = document.getElementById('sortBtn');
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const resultsSection = document.getElementById('resultsSection');
+    const resultsGrid = document.getElementById('resultsGrid');
+    const filterTabs = document.getElementById('filterTabs');
+    const progressSection = document.getElementById('progressSection');
+    const progressBarFill = document.getElementById('progressBarFill');
+    const progressStatus = document.getElementById('progressStatus');
+    const progressPercent = document.getElementById('progressPercent');
+
+    // Init
+    async function init() {
+      await fetchConfig();
+      await fetchImages();
+      testConnection();
+      setupEvents();
+    }
+
+    async function fetchConfig() {
+      try {
+        const res = await fetch('/api/config');
+        appConfig = await res.json();
+        modelTag.textContent = appConfig.model || 'jev-latest';
+        renderPresets();
+        loadPreset(activePreset);
+      } catch (err) {
+        console.error('Config load failed:', err);
+      }
+    }
+
+    async function testConnection() {
+      try {
+        const res = await fetch('/api/test-connection', { method: 'POST', body: JSON.stringify({}) });
+        const data = await res.json();
+        if (data.success) {
+          statusPill.className = 'status-pill';
+          statusText.textContent = 'API Connected (System One)';
+        } else {
+          statusPill.className = 'status-pill offline';
+          statusText.textContent = 'Auth / Endpoint Error';
+        }
+      } catch (e) {
+        statusPill.className = 'status-pill offline';
+        statusText.textContent = 'API Offline';
+      }
+    }
+
+    function renderPresets() {
+      presetGroup.innerHTML = '';
+      if (!appConfig || !appConfig.presets) return;
+
+      Object.keys(appConfig.presets).forEach(key => {
+        const p = appConfig.presets[key];
+        const btn = document.createElement('div');
+        btn.className = `preset-btn ${key === activePreset ? 'active' : ''}`;
+        btn.innerHTML = `
+          <span>${formatPresetName(key)}</span>
+          <span class="count">${Object.keys(p.categories).length}</span>
+        `;
+        btn.onclick = () => loadPreset(key);
+        presetGroup.appendChild(btn);
+      });
+    }
+
+    function formatPresetName(key) {
+      if (key === 'general') return 'General Media';
+      if (key === 'office') return 'Office & Business';
+      if (key === 'industrial_safety') return 'Industrial Safety & Quality';
+      return key;
+    }
+
+    function loadPreset(key) {
+      activePreset = key;
+      renderPresets();
+      const p = appConfig.presets[key];
+      currentCategories = { ...p.categories };
+      renderCategories();
+    }
+
+    function renderCategories() {
+      categoryBox.innerHTML = '';
+      Object.keys(currentCategories).forEach(cat => {
+        const badge = document.createElement('span');
+        badge.className = 'cat-badge';
+        badge.innerHTML = `
+          <span>${cat}</span>
+          <span class="remove-btn" onclick="removeCategory('${cat}')">&times;</span>
+        `;
+        categoryBox.appendChild(badge);
+      });
+    }
+
+    function removeCategory(cat) {
+      delete currentCategories[cat];
+      renderCategories();
+    }
+
+    document.getElementById('addCatBtn').onclick = () => {
+      const input = document.getElementById('newCatInput');
+      const val = input.value.trim().toLowerCase().replace(/\s+/g, '_');
+      if (val && !currentCategories[val]) {
+        currentCategories[val] = `Images depicting ${val.replace(/_/g, ' ')}`;
+        renderCategories();
+        input.value = '';
+      }
+    };
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('modeCopy').className = `switch-opt ${mode === 'copy' ? 'active' : ''}`;
+      document.getElementById('modeMove').className = `switch-opt ${mode === 'move' ? 'active' : ''}`;
+    }
+
+    async function fetchImages() {
+      try {
+        const res = await fetch('/api/images');
+        const data = await res.json();
+        stagedImages = data.images || [];
+        renderStagedImages();
+      } catch (err) {
+        console.error('Failed to load images:', err);
+      }
+    }
+
+    function renderStagedImages() {
+      stagedCount.textContent = `${stagedImages.length} image(s) in queue`;
+      sortBtn.disabled = stagedImages.length === 0;
+
+      stagedGrid.innerHTML = '';
+      stagedImages.forEach(img => {
+        const card = document.createElement('div');
+        card.className = 'image-card';
+        card.innerHTML = `
+          <img class="img-preview" src="/api/thumbnail/${encodeURIComponent(img.name)}" alt="${img.name}" loading="lazy">
+          <div class="card-meta">
+            <div class="card-filename" title="${img.name}">${img.name}</div>
+            <div class="card-size">${(img.size_bytes / 1024).toFixed(1)} KB</div>
+          </div>
+        `;
+        stagedGrid.appendChild(card);
+      });
+    }
+
+    function setupEvents() {
+      // Dropzone
+      dropzone.onclick = () => fileInput.click();
+      dropzone.ondragover = (e) => { e.preventDefault(); dropzone.classList.add('dragover'); };
+      dropzone.ondragleave = () => dropzone.classList.remove('dragover');
+      dropzone.ondrop = (e) => {
+        e.preventDefault();
+        dropzone.classList.remove('dragover');
+        if (e.dataTransfer.files.length) uploadFiles(e.dataTransfer.files);
+      };
+
+      fileInput.onchange = (e) => {
+        if (e.target.files.length) uploadFiles(e.target.files);
+      };
+
+      // Folder buttons
+      document.getElementById('openInputBtn').onclick = () => openFolder('input');
+      document.getElementById('openOutputBtn').onclick = () => openFolder('output');
+      document.getElementById('refreshBtn').onclick = () => { fetchImages(); testConnection(); };
+
+      // Sort button
+      sortBtn.onclick = runSort;
+    }
+
+    async function openFolder(folder) {
+      await fetch('/api/open-folder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ folder })
+      });
+    }
+
+    async function uploadFiles(files) {
+      for (const file of files) {
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          await fetch('/api/upload', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              filename: file.name,
+              base64_data: e.target.result
+            })
+          });
+          fetchImages();
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    async function runSort() {
+      if (!stagedImages.length) return;
+
+      sortBtn.disabled = true;
+      progressSection.classList.remove('hidden');
+      progressBarFill.style.width = '30%';
+      progressStatus.textContent = 'Submitting to System One decision engine...';
+      progressPercent.textContent = '30%';
+
+      const payload = {
+        preset: activePreset,
+        categories: currentCategories,
+        context: document.getElementById('contextGuidance').value.trim(),
+        mode: currentMode,
+        dry_run: document.getElementById('dryRunCheck').checked,
+        files: stagedImages.map(img => img.name)
+      };
+
+      try {
+        progressBarFill.style.width = '65%';
+        progressStatus.textContent = 'Analyzing and sorting images...';
+        progressPercent.textContent = '65%';
+
+        const res = await fetch('/api/sort', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        progressBarFill.style.width = '100%';
+        progressStatus.textContent = 'Done!';
+        progressPercent.textContent = '100%';
+
+        setTimeout(() => {
+          progressSection.classList.add('hidden');
+        }, 1200);
+
+        if (data.results) {
+          sortingResults = data.results;
+          renderResults(sortingResults);
+          fetchImages(); // Refresh remaining images if moved
+        }
+      } catch (err) {
+        alert('Sort failed: ' + err.message);
+        progressSection.classList.add('hidden');
+      } finally {
+        sortBtn.disabled = false;
+      }
+    }
+
+    function renderResults(results) {
+      resultsSection.classList.remove('hidden');
+      document.getElementById('countAll').textContent = results.length;
+
+      // Group counts
+      const counts = {};
+      results.forEach(r => {
+        if (r.category) {
+          counts[r.category] = (counts[r.category] || 0) + 1;
+        }
+      });
+
+      // Filter tabs
+      filterTabs.innerHTML = `<span class="filter-tab active" onclick="filterResults('all')">All (${results.length})</span>`;
+      Object.keys(counts).forEach(cat => {
+        const tab = document.createElement('span');
+        tab.className = 'filter-tab';
+        tab.textContent = `${cat} (${counts[cat]})`;
+        tab.onclick = () => filterResults(cat);
+        filterTabs.appendChild(tab);
+      });
+
+      populateResultGrid(results);
+      resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function filterResults(category) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (category === 'all') {
+        populateResultGrid(sortingResults);
+      } else {
+        const filtered = sortingResults.filter(r => r.category === category);
+        populateResultGrid(filtered);
+      }
+    }
+
+    function populateResultGrid(items) {
+      resultsGrid.innerHTML = '';
+      items.forEach(item => {
+        if (item.error) {
+          const errCard = document.createElement('div');
+          errCard.className = 'result-card';
+          errCard.innerHTML = `
+            <div class="result-body">
+              <div style="color: var(--accent-rose); font-weight: 700;">Error: ${item.filename}</div>
+              <div style="font-size: 12px; color: var(--text-dim);">${item.error}</div>
+            </div>
+          `;
+          resultsGrid.appendChild(errCard);
+          return;
+        }
+
+        const confPct = Math.round((item.confidence || 0) * 100);
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.innerHTML = `
+          <img class="img-preview" src="/api/thumbnail/${encodeURIComponent(item.filename)}" alt="${item.filename}">
+          <div class="result-body">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span class="cat-pill">${item.category}</span>
+              <span style="font-size: 11px; color: var(--accent-emerald); font-weight: 700;">${item.action.toUpperCase()}</span>
+            </div>
+            
+            <div class="confidence-bar-wrap">
+              <div class="conf-label">
+                <span>Confidence</span>
+                <span>${confPct}%</span>
+              </div>
+              <div class="conf-track">
+                <div class="conf-fill" style="width: ${confPct}%"></div>
+              </div>
+            </div>
+
+            <div class="result-dest" title="${item.destination}">
+              📁 ${item.category}/${item.filename}
+            </div>
+          </div>
+        `;
+        resultsGrid.appendChild(card);
+      });
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
